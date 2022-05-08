@@ -50,5 +50,13 @@ namespace Project.Command.Domain.Aggerates
             ApplyEvent(@event, @event.AggregateVersion);
             _uncommittedEvents.Add(@event);
         }
+
+        public void LoadFromHistory(IEnumerable<IDomainEvent> events)
+        {
+            foreach (var @event in events)
+            {
+                ApplyEvent(@event, @event.AggregateVersion);
+            }
+        }
     }
 }

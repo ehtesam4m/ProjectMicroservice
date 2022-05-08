@@ -1,4 +1,4 @@
-namespace Project.Command.SharedKernel.Serialyser
+﻿namespace Project.Command.SharedKernel.Serialyser
 {
     public class JsonSerializer : IJsonSerializer
     {
@@ -7,11 +7,21 @@ namespace Project.Command.SharedKernel.Serialyser
         public JsonSerializer(IJsonProvider jsonProvider)
         {
             _jsonProvider = jsonProvider;
-
+          
         }
         public string Serialize<T>(T objectValue)
         {
             return _jsonProvider.SerializeObject<T>(objectValue);
+        }
+
+        public T Deserialize<T>(string stringValue)
+        {
+            return _jsonProvider.DeserializeObject<T>(stringValue);
+        }
+
+        public T Deserialize<T>(string type, string stringValue) 
+        {
+            return _jsonProvider.DeserializeObject<T>(stringValue, type);
         }
     }
 }

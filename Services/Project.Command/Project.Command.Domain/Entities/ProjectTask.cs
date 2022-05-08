@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Project.Command.Domain.Entities;
 
-namespace Project.Domain.Entities
+namespace Project.Command.Domain.Entities
 {
     public class ProjectTask : Entity<Guid>
     {
